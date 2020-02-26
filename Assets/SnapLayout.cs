@@ -8,11 +8,18 @@ public class SnapLayout : MonoBehaviour
 {
     public Transform InitialAnchor;
 
-    public void AddElement(SnapLayoutElement element)
+    public SnapLayoutElement AddElement(SnapLayoutElement element, int siblingIndex = -1)
     {
         var instance = Instantiate(element, transform);
 
+        if (siblingIndex >= 0)
+        {
+            instance.transform.SetSiblingIndex(siblingIndex);
+        }  
+
         UpdatePositions();
+
+        return instance;
     }
 
     private void UpdatePositions()

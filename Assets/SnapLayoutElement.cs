@@ -7,5 +7,10 @@ namespace DefaultNamespace
     {
         public Transform AnchorMinXZ;
         public Transform AnchorMaxXZ;
+
+        public float ElementHeight()
+        {
+            return AnchorMaxXZ.localPosition.z - AnchorMinXZ.localPosition.z;
+        }
     }
 }
